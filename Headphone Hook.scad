@@ -1,5 +1,5 @@
 // Radius (and approximate width) of the hook.
-hook_r = 50; // [30:60]
+hook_r = 60; // [30:80]
 // Total length of the hook.
 hook_l = 80; // [50:120]
 // Thickness of the walls of the hook.
