@@ -7,11 +7,14 @@ backInset = 0.35;
 backInsetScale = 0.8;
 
 fudge = 0.001;
+fw = 0.5;
+
+function afn(r) = 180 / asin(fw / (2 * r));
 
 module drawCorner(r, height) {
   translate([r, r]) rotate([0, 0, 180]) linear_extrude(height) difference() {
     square([r + fudge, r + fudge]);
-    circle(r=r);
+    circle(r=r, $fn=afn(r));
   }
 }
 
@@ -43,7 +46,7 @@ module arrowShafts(spread, length, d, lift, inset, faceSize) {
   translate([0, 0, o - lift])
     for (a = [-angle, 0, angle])
       rotate([0, a, 0]) translate([0, 0, lift - inset])
-        cylinder(h = length, r = d / 2);
+        cylinder(h = length, r = d / 2, $fn=afn(d / 2));
 }
 
 module drawBlock() {
@@ -75,12 +78,8 @@ module drawBlock() {
       rotate([90, 0, 0]) linear_extrude(backInset) scale(backInsetScale)
         drawBlockPolygon(faceSize, blockHeight, arrowAngle);
     
-    $fn = 100;
-    
     translate([0, 0, blockHeight - faceSize * sin(arrowAngle)])
       arrowShafts(arrowSpread, arrowLength, arrowDiameter, arrowLift, holeDepth, faceSize);
-    
-    $fn = 200;
     
     translate([blockWidth / -2 + j, faceSize / -2, 0]) rotate([0, -arrowAngle, 0])
       translate([0, 0, -blockHeight])
