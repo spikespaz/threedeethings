@@ -35,7 +35,7 @@ box_height = cpu_height + height_margin * 2;
 // Clearance for the components on the bottom of the CPU.
 bottom_clearance = 2; // [1:0.2:3]
 // Margin to the sides of the components on the bottom of the CPU.
-bottom_margin = 20; //[2:1:10]
+bottom_margin = 10; //[2:1:10]
 
 /* [Hidden] */
 
