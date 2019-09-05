@@ -3,11 +3,11 @@ hook_r = 60; // [30:80]
 // Total length of the hook.
 hook_l = 80; // [50:120]
 // Thickness of the walls of the hook.
-hook_t = 3; // [2:5]
+hook_t = 4; // [3.0:7.0]
 // Diameter of the hole created for mounting with a screw.
-hole_d = 4; // [3:6]
+hole_d = 4.5; // [3.0:6.0]
 // Offset for the screw hole relative to the inner edge of the top face of the base.
-hole_o = 3; // [2:6]
+hole_o = 3; // [2.0:6.0]
 
 $fn = 150;
 
