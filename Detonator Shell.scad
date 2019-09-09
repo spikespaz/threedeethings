@@ -9,7 +9,7 @@ wire_w = 1.4;
 wire_s = 5;
 wire_o = 5;
 sw_d = 22;
-sw_r = 4.875;
+sw_r = 4.88;
 sw_nub_w = 1.4;
 
 // Make a cube with four rounded sides.
