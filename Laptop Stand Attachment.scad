@@ -68,20 +68,21 @@ module block_angle() {
 }
 
 module block(orientation) {
-  union() {
-    if (orientation == "right")
-      rotate([0, 0, 180]) translate([-block_inset_length_1, -block_inset_width, 0])
-        block_inset();
-    else
+  if (orientation == "right")
+    translate([0, block_inset_width, 0]) rotate([0, 0, 180]) mirror([1, 0, 0])
+      block("left");
+  else
+    union() {
       block_inset();
 
-    translate([0, 0, block_inset_depth])
-      block_angle();
-  }
+      translate([0, 0, block_inset_depth])
+        block_angle();
+    }
 }
 
-rotate([0, -90, 90])
+rotate([0, -90, 0])
   block("left");
 
-translate([10, 0, block_inset_length_1]) rotate([0, -270, -90])
+translate([0, block_inset_width + 10, 0])
+rotate([0, -90, 0])
   block("right");
